@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   public signUpForm!: FormGroup;
   type: string = 'passwordHash';
   isText: boolean = false;
-  eyeIcon:string = "fa-eye-slash";
+  eyeIcon: string = "fa-eye-slash";
 
   successMessage:string =""
 
