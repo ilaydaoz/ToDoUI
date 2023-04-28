@@ -8,9 +8,15 @@
                             <mat-label>buraya yaz..</mat-label>
                             <input formControlName="title" matInput placeholder="yazıyon mu">
                             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                            <mat-hint>görev adı ekle</mat-hint>
+                            <mat-hint>görev ekle</mat-hint>
                         </mat-form-field>
-                        <button (click)="newToDo()" mat-raised-button [disabled]="todoForm.invalid" color="primary">ekle</button>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>buraya öcelik derecesi gir</mat-label>
+                            <input formControlName="priority" matInput placeholder="yazıyon mu">
+                        </mat-form-field>
+                        <button (click)="newToDo()" mat-raised-button [disabled]="todoForm.invalid"
+                            color="primary">ekle</button>
                     </form>
                 </mat-card>
             </div>
@@ -23,44 +29,45 @@
                         <!--to do-->
                         <div class="example-container">
                             <h2>To do</h2>
-                            <div
-                              cdkDropList
-                              [cdkDropListData]="tasks"
-                              class="example-list"
-                              (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let title of tasks" cdkDrag>{{title.description}}</div>
-                            </div>title
-                          </div>
-                    </div>
-                    <div class="col-md-4">
-                        <!--inprogress -->
-                        <div class="example-container">
-                            <h2>Yapılanla</h2>
-                            <div
-                              cdkDropList
-                              [cdkDropListData]="inprogress"
-                              class="example-list"
-                              (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let title of inprogress" cdkDrag>{{title.description}}</div>
+                            <div cdkDropList [cdkDropListData]="tasks" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let title of tasks" cdkDrag>{{title.description}}</div>
                             </div>
-                          </div>
-                    </div>
-                    <div class="col-md-4">
-                        <!--done -->
-                        <div class="example-container">
-                            <h2>Bitmiş görevler</h2>
-                            <div
-                              cdkDropList
-                              [cdkDropListData]="DueDate"
-                              class="example-list"
-                              (cdkDropListDropped)="drop($event)">
-                              <div class="example-box" *ngFor="let title of DueDate" cdkDrag>{{title.description}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <!--inprogress -->
+                            <div class="example-container">
+                                <h2>Yapılanla</h2>
+                                <div cdkDropList [cdkDropListData]="inprogress" class="example-list"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="example-box" *ngFor="let title of inprogress" cdkDrag>
+                                        {{title.description}}
+                                    </div>
+                                </div>
                             </div>
-                          </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!--done -->
+                            <div class="example-container">
+                                <h2>Bitmiş görevler</h2>
+                                <div cdkDropList [cdkDropListData]="DueDate" class="example-list"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="example-box" *ngFor="let title of DueDate" cdkDrag>{{title.description}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="example-container">
+                            <h2>bütün görevler</h2>
+                            <div cdkDropList [cdkDropListData]="DueDate" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="example-box" *ngFor="let title of DueDate" cdkDrag>{{title.description}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-</div>

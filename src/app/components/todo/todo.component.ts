@@ -17,12 +17,15 @@ inprogress : ITask [] = [];
 DueDate : ITask [] = [];
 
 
+
+
 constructor(private fb: FormBuilder ,private readonly httpService:HttpClientService){}
   postToDo: ITask | undefined;
 
 ngOnInit(): void{
   this.todoForm = this.fb.group({
     title :['', Validators.required],
+    priority :['', Validators.required],
   })
 }
 newToDo(): void{
@@ -30,6 +33,7 @@ newToDo(): void{
     description:this.todoForm.value.title,
     DueDate:false,
     title:this.todoForm.value.title,
+    priority:this.todoForm.value.priority,
   })
 
   console.log(this.todoForm.value);
